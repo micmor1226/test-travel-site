@@ -13,6 +13,7 @@ gulp.task('styles', function(){
     console.log("Imagine SASS or PostCSS tasks running here.");
 });
 
+//Testing watch
 gulp.task('watch', function(){
     watch('./app/index.html', function(){
         gulp.start('html');
