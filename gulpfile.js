@@ -5,11 +5,13 @@ var watch = require('gulp-watch');
 //Main postcss install
 var postcss = require('gulp-postcss');
 //Browser specific prefixing
-var autoprefixer = require('autoprefixer');
+var autoPrefixer = require('autoprefixer');
 //CSS variable support
-var cssvars = require('postcss-simple-vars');
+var cssVars = require('postcss-simple-vars');
 //Allows CSS nesting
 var nested = require('postcss-nested');
+//Allows import to be ignored and replaced with CSS from the CSS module 
+var cssImport = require('postcss-import');
 
 gulp.task('default', function(){
     console.log("We created a gulp task.");
@@ -22,7 +24,7 @@ gulp.task('html', function(){
 //Automate PostCSS creation
 gulp.task('styles', function(){
     return gulp.src('./app/assets/styles/styles.css')
-    .pipe(postcss([cssvars, nested, autoprefixer]))
+    .pipe(postcss([cssImport, cssVars, nested, autoPrefixer]))
     .pipe(gulp.dest('./app/temp/styles'));
 });
 
