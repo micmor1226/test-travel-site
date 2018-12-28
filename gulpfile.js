@@ -1,6 +1,6 @@
 //Base  Gulp functionality
 var gulp = require('gulp');
-//Gulp watch tast functionality
+//Gulp watch task functionality
 var watch = require('gulp-watch');
 //Main postcss install
 var postcss = require('gulp-postcss');
@@ -12,6 +12,8 @@ var cssVars = require('postcss-simple-vars');
 var nested = require('postcss-nested');
 //Allows import to be ignored and replaced with CSS from the CSS module 
 var cssImport = require('postcss-import');
+//Browser Sync
+var browserSync = require('browser-sync').create();
 
 gulp.task('default', function(){
     console.log("We created a gulp task.");
@@ -29,12 +31,27 @@ gulp.task('styles', function(){
 });
 
 gulp.task('watch', function(){
+
+    browserSync.init({
+        notify: false,
+        server: {
+            baseDir: "app"
+        }
+    });
+
     watch('./app/index.html', function(){
-        gulp.start('html');
+        browserSync.reload();
     });
 
     watch('./app/assets/styles/**/*.css', function(){
-        gulp.start('styles');
+        gulp.start('cssInject');
     });
+
 });
 
+//This task will only run after the 'styles' task is run.
+//Brackets signify dependencies
+gulp.task('cssInject', ['styles'], function(){
+    return gulp.src('./app/temp/styles/styles.css')
+    .pipe(browserSync.stream());
+});
