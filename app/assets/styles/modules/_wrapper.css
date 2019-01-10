@@ -4,4 +4,15 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right:auto;
+
+    /*Helps center image out inside of parent wrapper class*/
+    &--medium {
+        max-width: 976px;
+    }
+
+    /*Tells the browser to negate padding on any wrapper classes that are nested in another wrapper class*/
+    .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

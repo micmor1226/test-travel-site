@@ -1,0 +1,43 @@
+.headline {
+    font-size: 1.9rem;
+    font-weight:300;
+    color: $mainBlue;
+
+    @mixin atSmall {
+        font-size: 2.875rem;
+    }
+    &--centered {
+        text-align: center;
+    }
+
+    &--orange {
+        color: $mainOrange;
+    }
+
+    &--small {
+        font-size: 1.2rem;
+        @mixin atSmall {
+            font-size: 1.875rem;
+        }
+    }
+
+    &--narrow {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &--light {
+        font-family: 'Roboto', sans-serif; /* for some reason, the browser is not interpretting font-weight correctly without specifying the font-family here, 
+        despite the inspector stating the font-family is correctly being inherited from global.css  This will need further research.*/
+        font-weight: 100;
+    }
+
+    &--b-margin-small {
+        margin-bottom: .5em; /*relative to font size of element itself, can be reused this class on headlines that have different font sizes and it will scale nicely */
+    }
+
+    &--b-margin-large {
+        margin-bottom: 1.6em;
+    }
+}

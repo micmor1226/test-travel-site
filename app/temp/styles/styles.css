@@ -460,6 +460,8 @@ img {
     height: auto;   
 }
 
+/*Mobile first methodology in mind here. Each mixin is for when a screen meets at least the specified width. atSmall would be called for when a screen is at least 530px wide, and so on.*/
+
 .large-hero {
     position: relative;
     border-bottom: 10px solid #2f5572;
@@ -555,11 +557,83 @@ img {
     margin-right:auto;
 }
 
+/*Helps center image out inside of parent wrapper class*/
+
+.wrapper--medium {
+        max-width: 976px;
+    }
+
+/*Tells the browser to negate padding on any wrapper classes that are nested in another wrapper class*/
+
+.wrapper .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
 .page-section {
-    padding: 4.5rem 0;
+    padding: 1.2rem 0;
 }
+
+@media (min-width: 800px){
+
+.page-section {
+        padding: 4.5rem 0
+}
+    }
 
 .page-section--blue {
         background-color: #2f5572;
         color: #FFF;
+    }
+
+.headline {
+    font-size: 1.9rem;
+    font-weight:300;
+    color: #2f5572;
+}
+
+@media (min-width: 530px){
+
+.headline {
+        font-size: 2.875rem
+}
+    }
+
+.headline--centered {
+        text-align: center;
+    }
+
+.headline--orange {
+        color: #d59541;
+    }
+
+.headline--small {
+        font-size: 1.2rem;
+    }
+
+@media (min-width: 530px){
+
+.headline--small {
+            font-size: 1.875rem
+    }
+    }
+
+.headline--narrow {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.headline--light {
+        font-family: 'Roboto', sans-serif; /* for some reason, the browser is not interpretting font-weight correctly without specifying the font-family here, 
+        despite the inspector stating the font-family is correctly being inherited from global.css  This will need further research.*/
+        font-weight: 100;
+    }
+
+.headline--b-margin-small {
+        margin-bottom: .5em; /*relative to font size of element itself, can be reused this class on headlines that have different font sizes and it will scale nicely */
+    }
+
+.headline--b-margin-large {
+        margin-bottom: 1.6em;
     }

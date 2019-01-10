@@ -1,3 +1,4 @@
+/*Mobile first methodology in mind here. Each mixin is for when a screen meets at least the specified width. atSmall would be called for when a screen is at least 530px wide, and so on.*/
 @define-mixin atSmall{
     @media (min-width: 530px){
         @mixin-content;
