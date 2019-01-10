@@ -1,0 +1,30 @@
+/*Class name explanation and how we are spacing everything. We are breaking the entire width of the page into 12 grids which total to 100% of the page.
+Each grid is roughly 8.33% of the page. If we estimate the grid width of the two columns we are working with in this case, they can be broken up into a div that is 4 grids,
+and a div that is 8 of the remaining grids. By calculating the number of grids we end with a resulting width percentage that is standard throughout the page.*/
+.row {
+
+    @mixin clearFix;
+
+    @mixin atMedium {
+        &__medium-4 {
+            float:left;
+            width: 33.33%;
+        }
+    
+        &__medium-8 {
+            float:left;
+            width: 66.66%;
+        }
+    }
+    
+
+    &--gutters {
+        margin-right: -65px; /*Counteract the padding right, then in wrapper.css state overflow:hidden*/
+    }
+
+    /*This syntax selects all children div elements of the gutters class*/
+    &--gutters > div {
+        padding-right: 65px;
+        /*Make note of global setting for box-width in global.css*/
+    }
+}

@@ -7,3 +7,7 @@ img {
     max-width: 100%;
     height: auto;   
 }
+
+* {
+    box-sizing: border-box; /*Tells the browser to respect the declared width values, instead of adding padding on to the already declared width percentages.*/
+}

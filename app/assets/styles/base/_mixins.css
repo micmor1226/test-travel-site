@@ -16,3 +16,12 @@
         @mixin-content;
     }
 }
+
+@define-mixin clearFix {
+    /*Applies these styles after the parent row class ends*/
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
