@@ -10,10 +10,18 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
             float:left;
             width: 33.33%;
         }
-    
+        
+        &__medium-4--larger {
+            width: 37%;
+        }
+
         &__medium-8 {
             float:left;
             width: 66.66%;
+        }
+        
+        &__medium-8--smaller {
+            width: 63%;
         }
     }
     

@@ -558,7 +558,7 @@ img {
     overflow: hidden;
     padding-left:18px;
     padding-right:18px;
-    max-width: 1200px;
+    max-width: 1236px; /*Add 36 pixels to account for the loss of those pixels when applying a global box-sizing:border-box. This is based on losing the left and right padding.*/
     margin-left: auto;
     margin-right:auto;
 }
@@ -574,6 +574,17 @@ img {
 .wrapper .wrapper {
         padding-left: 0;
         padding-right: 0;
+    }
+
+.wrapper--b-margin {
+        margin-bottom: 1rem;
+    }
+
+@media (min-width: 530px){
+
+.wrapper--b-margin {
+            margin-bottom: 3.875rem
+    }
     }
 
 .page-section {
@@ -661,10 +672,18 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
             float:left;
             width: 33.33%;
         }
-    
+        
+        .row__medium-4--larger {
+            width: 37%;
+        }
+
         .row__medium-8 {
             float:left;
             width: 66.66%;
+        }
+        
+        .row__medium-8--smaller {
+            width: 63%;
         }
     }
 
