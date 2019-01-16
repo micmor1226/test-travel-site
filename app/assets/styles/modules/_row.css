@@ -5,7 +5,28 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
 
     @mixin clearFix;
 
+    &--gutters {
+        margin-right: -65px; /*Counteract the padding right, then in wrapper.css state overflow:hidden*/
+    }
+
+    /*This syntax selects all children div elements of the gutters class*/
+    &--gutters > div {
+        padding-right: 65px;
+        /*Make note of global setting for box-width in global.css*/
+    }
+
+    /*For small screens, add small margin for single column layout*/
+    &__b-margin-until-medium {
+        margin-bottom: 1rem;
+    }
+
     @mixin atMedium {
+
+        /*For larger screens that now use two columns, remove margin*/
+        &__b-margin-until-medium {
+            margin-bottom: 0;
+        }
+
         &__medium-4 {
             float:left;
             width: 33.33%;
@@ -23,16 +44,5 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         &__medium-8--smaller {
             width: 63%;
         }
-    }
-    
-
-    &--gutters {
-        margin-right: -65px; /*Counteract the padding right, then in wrapper.css state overflow:hidden*/
-    }
-
-    /*This syntax selects all children div elements of the gutters class*/
-    &--gutters > div {
-        padding-right: 65px;
-        /*Make note of global setting for box-width in global.css*/
     }
 }

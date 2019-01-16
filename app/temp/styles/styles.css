@@ -450,6 +450,8 @@ template {
   display: none;
 }
 
+/*Mobile first methodology in mind here. Each mixin is for when a screen meets at least the specified width. atSmall would be called for when a screen is at least 530px wide, and so on.*/
+
 body {
     font-family: 'Robato', sans-serif;
     color: #333;
@@ -465,7 +467,9 @@ img {
             box-sizing: border-box; /*Tells the browser to respect the declared width values, instead of adding padding on to the already declared width percentages.*/
 }
 
-/*Mobile first methodology in mind here. Each mixin is for when a screen meets at least the specified width. atSmall would be called for when a screen is at least 530px wide, and so on.*/
+a {
+    color: #d59541;
+}
 
 .large-hero {
     position: relative;
@@ -655,6 +659,10 @@ img {
         margin-bottom: 1.6em;
     }
 
+.headline--no-t-margin {
+        margin-top: 0;
+    }
+
 /*Class name explanation and how we are spacing everything. We are breaking the entire width of the page into 12 grids which total to 100% of the page.
 Each grid is roughly 8.33% of the page. If we estimate the grid width of the two columns we are working with in this case, they can be broken up into a div that is 4 grids,
 and a div that is 8 of the remaining grids. By calculating the number of grids we end with a resulting width percentage that is standard throughout the page.*/
@@ -667,7 +675,33 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         display: table;
     }
 
+.row--gutters {
+        margin-right: -65px; /*Counteract the padding right, then in wrapper.css state overflow:hidden*/
+    }
+
+/*This syntax selects all children div elements of the gutters class*/
+
+.row--gutters > div {
+        padding-right: 65px;
+        /*Make note of global setting for box-width in global.css*/
+    }
+
+/*For small screens, add small margin for single column layout*/
+
+.row__b-margin-until-medium {
+        margin-bottom: 1rem;
+    }
+
 @media (min-width: 800px){
+
+.row {
+
+        /*For larger screens that now use two columns, remove margin*/
+}
+        .row__b-margin-until-medium {
+            margin-bottom: 0;
+        }
+
         .row__medium-4 {
             float:left;
             width: 33.33%;
@@ -687,13 +721,18 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         }
     }
 
-.row--gutters {
-        margin-right: -65px; /*Counteract the padding right, then in wrapper.css state overflow:hidden*/
+.generic-content-container p {
+        line-height: 1.65;
+        margin: 1.8rem 0;
     }
 
-/*This syntax selects all children div elements of the gutters class*/
+@media (min-width: 530px){
 
-.row--gutters > div {
-        padding-right: 65px;
-        /*Make note of global setting for box-width in global.css*/
+.generic-content-container p {
+            font-size: 1.125rem
+    }
+    }
+
+.generic-content-container p a {
+        font-weight: 700;
     }
