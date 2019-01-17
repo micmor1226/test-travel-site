@@ -15,6 +15,14 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         /*Make note of global setting for box-width in global.css*/
     }
 
+    &--gutters-large {
+        margin-right: -100px;
+    }
+
+    &--gutters-large > div {
+        padding-right: 100px;
+    }
+
     /*For small screens, add small margin for single column layout*/
     &__b-margin-until-medium {
         margin-bottom: 1rem;
@@ -34,6 +42,11 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         
         &__medium-4--larger {
             width: 37%;
+        }
+
+        &__medium-6 {
+            float: left;
+            width: 50%
         }
 
         &__medium-8 {
