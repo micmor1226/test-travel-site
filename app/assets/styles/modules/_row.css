@@ -5,6 +5,10 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
 
     @mixin clearFix;
 
+    &--t-padding {
+        padding-top: 80px;
+    }
+
     &--gutters {
         margin-right: -65px; /*Counteract the padding right, then in wrapper.css state overflow:hidden*/
     }
@@ -18,9 +22,17 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
     &--gutters-large {
         margin-right: -100px;
     }
-
+ 
     &--gutters-large > div {
         padding-right: 100px;
+    }
+
+    &--gutters-small {
+        margin-right: -45px;
+    }
+
+    &--gutters-small > div {
+        padding-right: 45px;
     }
 
     /*For small screens, add small margin for single column layout*/
@@ -56,6 +68,19 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         
         &__medium-8--smaller {
             width: 63%;
+        }
+    }
+
+    /*Begin Equal Height Rules*/
+    /*This tells the divs with the parent class of equal height, to match the height of the largest div*/
+    &--equal-height-at-medium {
+        @mixin atMedium {
+            display: flex;
+        }
+
+        & > div {
+            float: none;
+            display: flex;
         }
     }
 }

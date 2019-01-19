@@ -573,6 +573,19 @@ a {
         max-width: 976px;
     }
 
+.wrapper--no-padding-until-medium {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+@media (min-width: 800px){
+
+.wrapper--no-padding-until-medium {
+            padding-left:18px;
+            padding-right:18px
+    }
+    }
+
 /*Tells the browser to negate padding on any wrapper classes that are nested in another wrapper class*/
 
 .wrapper .wrapper {
@@ -602,14 +615,32 @@ a {
 }
     }
 
+.page-section--no-b-padding-until-medium {
+        padding-bottom: 0;
+    }
+
+.page-section--no-b-padding-until-mediummixin atMedium {
+            padding-bottom: 4.5rem;
+        }
+
 .page-section--blue {
         background-color: #2f5572;
         color: #FFF;
     }
 
 .page-section--testimonials {
-        background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-        background-size: cover;
+
+        background-color: #e0e6ef;
+        
+    }
+
+@media (min-width: 800px){
+
+.page-section--testimonials {
+            background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+            background-size: cover
+        
+    }
     }
 
 .headline {
@@ -672,12 +703,21 @@ a {
 Each grid is roughly 8.33% of the page. If we estimate the grid width of the two columns we are working with in this case, they can be broken up into a div that is 4 grids,
 and a div that is 8 of the remaining grids. By calculating the number of grids we end with a resulting width percentage that is standard throughout the page.*/
 
+.row {
+
+    /*Begin Equal Height Rules*/
+}
+
 /*Applies these styles after the parent row class ends*/
 
 .row::after {
         content: "";
         clear: both;
         display: table;
+    }
+
+.row--t-padding {
+        padding-top: 80px;
     }
 
 .row--gutters {
@@ -697,6 +737,14 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
 
 .row--gutters-large > div {
         padding-right: 100px;
+    }
+
+.row--gutters-small {
+        margin-right: -45px;
+    }
+
+.row--gutters-small > div {
+        padding-right: 45px;
     }
 
 /*For small screens, add small margin for single column layout*/
@@ -738,6 +786,24 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
             width: 63%;
         }
     }
+
+/*This tells the divs with the parent class of equal height, to match the height of the largest div*/
+
+@media (min-width: 800px){
+
+.row--equal-height-at-medium {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+    }
+    }
+
+.row--equal-height-at-medium > div {
+            float: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
 
 .generic-content-container p {
         line-height: 1.65;
@@ -841,8 +907,17 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
 
 .testimonial {
     background-color: rgba(255, 255, 255, .8);
-    padding: 0 1.8125rem 1px 1.8125rem;
+    padding: 0 18px 1px 18px;
+    margin-bottom: 98px;
 }
+
+@media (min-width: 800px){
+
+.testimonial {
+        margin-bottom: 0;
+        padding: 0 1.8125rem 1px 1.8125rem
+}
+    }
 
 .testimonial__photo {
         border-radius: 80px;
@@ -869,4 +944,8 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         font-weight: 500;
         font-size: 0.9375rem;
         margin: .25rem 0 1rem 0;
+    }
+
+.testimonial--last {
+        margin-bottom: 0;
     }
