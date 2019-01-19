@@ -586,6 +586,19 @@ a {
     }
     }
 
+.wrapper--no-padding-until-large {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+@media (min-width: 1010px){
+
+.wrapper--no-padding-until-large {
+            padding-left:18px;
+            padding-right:18px
+    }
+    }
+
 /*Tells the browser to negate padding on any wrapper classes that are nested in another wrapper class*/
 
 .wrapper .wrapper {
@@ -623,6 +636,14 @@ a {
             padding-bottom: 4.5rem;
         }
 
+.page-section--no-b-padding-until-large {
+        padding-bottom: 0;
+    }
+
+.page-section--no-b-padding-until-largemixin atLarge {
+            padding-bottom: 4.5rem;
+        }
+
 .page-section--blue {
         background-color: #2f5572;
         color: #FFF;
@@ -634,7 +655,7 @@ a {
         
     }
 
-@media (min-width: 800px){
+@media (min-width: 1010px){
 
 .page-section--testimonials {
             background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
@@ -703,11 +724,6 @@ a {
 Each grid is roughly 8.33% of the page. If we estimate the grid width of the two columns we are working with in this case, they can be broken up into a div that is 4 grids,
 and a div that is 8 of the remaining grids. By calculating the number of grids we end with a resulting width percentage that is standard throughout the page.*/
 
-.row {
-
-    /*Begin Equal Height Rules*/
-}
-
 /*Applies these styles after the parent row class ends*/
 
 .row::after {
@@ -758,6 +774,7 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
 .row {
 
         /*For larger screens that now use two columns, remove margin*/
+
 }
         .row__b-margin-until-medium {
             margin-bottom: 0;
@@ -787,6 +804,41 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
         }
     }
 
+@media (min-width: 1010px){
+
+.row {
+
+        /*For larger screens that now use two columns, remove margin*/
+
+}
+        .row__b-margin-until-large {
+            margin-bottom: 0;
+        }
+
+        .row__large-4 {
+            float:left;
+            width: 33.33%;
+        }
+        
+        .row__large-4--larger {
+            width: 37%;
+        }
+
+        .row__large-6 {
+            float: left;
+            width: 50%
+        }
+
+        .row__large-8 {
+            float:left;
+            width: 66.66%;
+        }
+        
+        .row__large-8--smaller {
+            width: 63%;
+        }
+    }
+
 /*This tells the divs with the parent class of equal height, to match the height of the largest div*/
 
 @media (min-width: 800px){
@@ -799,6 +851,24 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
     }
 
 .row--equal-height-at-medium > div {
+            float: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+/*Begin Equal Height Rules*/
+
+@media (min-width: 1010px){
+
+.row--equal-height-at-large {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+    }
+    }
+
+.row--equal-height-at-large > div {
             float: none;
             display: -webkit-box;
             display: -ms-flexbox;
@@ -911,7 +981,7 @@ and a div that is 8 of the remaining grids. By calculating the number of grids w
     margin-bottom: 98px;
 }
 
-@media (min-width: 800px){
+@media (min-width: 1010px){
 
 .testimonial {
         margin-bottom: 0;
