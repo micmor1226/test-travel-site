@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
 svgSprite = require('gulp-svg-sprite'),
 rename = require('gulp-rename');
+del = require('del');
 
 var config = {
     mode: {
@@ -15,7 +16,14 @@ var config = {
     }
 }
 
-gulp.task('createSprite', function(){
+/*This task ensures a fresh folder of sprites is created each time they are generated. 
+This prevents svg file buildup.*/
+gulp.task('beginClean', function(){
+    return del(['./app/temp/sprite', './app/assets/images/sprites']);
+});
+
+/*This task depends on beginClean*/
+gulp.task('createSprite', ['beginClean'], function(){
     return gulp.src('./app/assets/images/icons/**/*.svg')
         .pipe(svgSprite(config))
         .pipe(gulp.dest('./app/temp/sprite/'));
@@ -35,4 +43,10 @@ gulp.task('copySpriteCSS', ['createSprite'], function(){
         .pipe(gulp.dest('./app/assets/styles/modules'));
 });
 
-gulp.task('icons', ['createSprite', 'copySpriteGraphic', 'copySpriteCSS']);
+/*Delete the temp sprites folder as it is no longer needed upon completion of the gulp icons task.
+This task depends on copySpriteGraphic and copySpriteCSS completing first.*/
+gulp.task('endClean', ['copySpriteGraphic', 'copySpriteCSS'], function(){
+    return del('./app/temp/sprite')
+});
+
+gulp.task('icons', ['beginClean', 'createSprite', 'copySpriteGraphic', 'copySpriteCSS', 'endClean']);
