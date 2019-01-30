@@ -1128,3 +1128,54 @@ Instead edit gulp/templates/sprite */
             margin-right: 1.4rem
     }
     }
+
+.site-header {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(47,85,114, .3);
+    width: 100%;
+    padding: 10px 0;
+}
+
+.site-header__btn-container {
+        float:right;
+    }
+
+.site-header__logo {
+        top: 0; /*Nullifies the site-header padding of 10px*/
+        position: absolute;
+        background-color: #2f5572;
+        padding: 25px 36px;
+    }
+
+.primary-nav--pull-right {
+        float:right;
+    }
+
+.primary-nav ul {
+        margin: 0;
+        padding: 0;
+    }
+
+/*Applies these styles after the parent row class ends*/
+
+.primary-nav ul::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+.primary-nav li {
+        list-style: none;
+        float: left;
+        padding-right: 20px;
+    }
+
+.primary-nav a {
+        color: #FFF;
+        text-decoration: none;
+        font-weight: 300;
+        display: block;
+        padding: 12px 0;
+        
+    }
