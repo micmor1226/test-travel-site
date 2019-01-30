@@ -632,17 +632,23 @@ a {
         padding-bottom: 0;
     }
 
-.page-section--no-b-padding-until-mediummixin atMedium {
-            padding-bottom: 4.5rem;
-        }
+@media (min-width: 800px){
+
+.page-section--no-b-padding-until-medium {
+            padding-bottom: 4.5rem
+    }
+    }
 
 .page-section--no-b-padding-until-large {
         padding-bottom: 0;
     }
 
-.page-section--no-b-padding-until-largemixin atLarge {
-            padding-bottom: 4.5rem;
-        }
+@media (min-width: 1010px){
+
+.page-section--no-b-padding-until-large {
+            padding-bottom: 4.5rem
+    }
+    }
 
 .page-section--blue {
         background-color: #2f5572;
@@ -1099,4 +1105,26 @@ Instead edit gulp/templates/sprite */
         width: 34.75px;
         height: 42px;
         background-position: 36.69752421959096% 45.792307692307695%;
+    }
+
+.site-footer {
+    background-color: #2f5572;
+    color: #FFF;
+    padding: .5rem 0;
+    text-align: center;
+}
+
+.site-footer__text {
+        display: block;
+        margin-bottom: 1rem;
+        font-weight: 200;
+    }
+
+@media (min-width: 800px){
+
+.site-footer__text {
+            display: inline;
+            margin-bottom: 0;
+            margin-right: 1.4rem
+    }
     }
